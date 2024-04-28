@@ -1,5 +1,3 @@
-# rhdb
-
 == Openchat
 
 Openchat is a Streamlit based AI Retrevial-Augmneted Generation (RAG) Chatbot that comes complete with a cli client for loading PDF documents into a  simple chat application that uses the Chroma database to schat messages.
@@ -67,3 +65,24 @@ streamlit run openchat-ragbot.py
 
 == Developer Notes
 
++
+[source,sh]
+----
+├── LICENSE
+├── README.adoc
+├── components                      # Components for the Streamlit UI
+│   ├── faq_llm.py
+│   └── sidebar.py
+├── config.py                        # Configuration file for globals
+├── container-compose.yml
+├── htmlTemplates.py
+├── openchat-chroma-loader.py       # Load data into Chroma database
+├── openchat-chroma-viewer-cli.py   # View data from Chroma database
+├── openchat-chroma-viewer-gui.py   # Streamlit viewer for Chroma database
+├── openchat-ragbot.py
+├── rag-input-data                  # Data for embedding into the Chroma database
+│   └── <YOUR PDFS>
+├── rag-persist-data                # Backing store for Chroma database
+│   ├── <chroma data>
+│   └── chroma.sqlite3
+----
