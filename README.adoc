@@ -12,7 +12,7 @@ It is built upon
 
 == Prerequisites
 
-* Running Mistral LLM via link:https://github.com/ollama/ollama[`ollama`] eg `ollama run mistral`
+* Running Mistral|Llama2|Granite LLM via link:https://github.com/ollama/ollama[`ollama`] eg `ollama run mistral`
 ** Beyond the scope of this documentation to explain how to run Mistral LLM
 ** Model is configured in `config.py` to point to the Mistral LLM model
 * Python `3.11` is strongly recommended to run this application.
