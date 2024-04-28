@@ -1,0 +1,69 @@
+# rhdb
+
+== Openchat
+
+Openchat is a Streamlit based AI Retrevial-Augmneted Generation (RAG) Chatbot that comes complete with a cli client for loading PDF documents into a  simple chat application that uses the Chroma database to schat messages.
+
+It is built upon
+
+* Streamlit
+* LangChain
+* Chroma
+* PyPDF2
+* Huggingface SentenceTransformers
+
+== Prerequisites
+
+* Python `3.11` is strongly recommended to run this application.
+* `podman`, or `docker`, is required to run the Chroma database server.
+
+== Setup
+
+It is recommended you use a Python `3.11` virtual environment to run this application.
+
+. Setup a virtual environment and install the requirements:
++
+[source,sh]
+----
+python3.11 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+----
+
+. Start the Chroma database server:
++
+[source,sh]
+----
+ podman run -d --rm \
+  --name openchat-chromadb -e IS_PERSISTENT=TRUE \
+  -v "./rag-persist-data:/chroma/chroma/" \
+  -p 8010:8000 \
+  ghcr.io/chroma-core/chroma:latest
+----
++
+NOTE: There is also a Container-compose.yml that can be used, *instead of the above* to start the Chroma database server simply by running `podman compose -f Container-compose.yml`
+ 
+
+== Running the application
+
+. (optional) load the Chroma database server:
++
+This is optional as the Chroma database server, already has access to the `rag-persist-data` directory which comes pre-populated with some data.
+From the link:./rag-input-data[rag-input-data] directory, you can load the data into the Chroma database server by running the following command:
++
+
+[source,sh]
+----
+python openchat-chroma-loader.py
+----
+
+. Start the Streamlit application:
++
+
+[source,sh]
+----
+streamlit run openchat-ragbot.py
+----
+
+== Developer Notes
+

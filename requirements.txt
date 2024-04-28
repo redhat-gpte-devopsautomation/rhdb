@@ -1,0 +1,7 @@
+#TODO: Version these highlevel dependencies
+chromadb
+langchain
+pypdf
+sentence-transformers
+streamlit
+watchdog

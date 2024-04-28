@@ -1,0 +1,14 @@
+---
+
+# Also see https://github.com/chroma-core/chroma/blob/main/docker-compose.yml
+
+services:
+
+  chroma-vector-store:
+    image: ghcr.io/chroma-core/chroma:latest
+    environment:
+      - IS_PERSISTENT=TRUE
+    volumes:
+      - "./rag-persist-data:/chroma/chroma/"
+    ports:
+      - 8010:8000
